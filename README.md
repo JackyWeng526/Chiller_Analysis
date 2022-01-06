@@ -1,11 +1,11 @@
 # Chiller_Analysis
 
 ## Introduction
-We are fortunately to have some data of chillers in a commercial building.
+We are fortunate to have some data on chillers in a commercial building.
 
 To optimize the chiller system operation, we predict the total cooling load over weather and building variables.
 
-Then, we intend to advance the chiller plant optimization.
+Then, we intend to advance the chiller plant optimization in the near future.
 
 **note: The repository is not complete yet and will be updated irregularly.
 
@@ -16,13 +16,13 @@ The datasets include chiller and weather data and are displayed below.
 
 
 ## Cooling Load Analysis
-First, we plot the timeseries of chillers' cooling load.
+First, we plot the time series of the chillers' cooling load.
 
 ![RT_total_timeserise](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RT_total_timeserise.PNG)
 
 ![Chillers_RT_timeserise](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/Chillers_RT_timeserise.PNG)
 
-Also, the weekly profile of chillers' cooling load is investigated.
+Also, the weekly profiles of the chillers' cooling load are investigated.
 
 ![RT_weekly_profile](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RT_weekly_profile.PNG)
 
@@ -31,17 +31,17 @@ Also, the weekly profile of chillers' cooling load is investigated.
 ![RTmax_vs_Ta](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RTmax_vs_Ta.PNG)
 
 ## Cooling Load Prediction
-We utilize lgbm for training and predicting.
+We utilize the LightGBM model for training and predicting.
 
-The details of the training code are in [/src](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/src/Cooling_load_predict.py).
+The details of the training code are in the [/src](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/src/Cooling_load_predict.py) folder.
 
-The predictions and the outcomes are plotted below.
+The outcomes are demonstrated below.
 
 ![RT_predictions](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RT_predictions.PNG)
 
 ![RT_predictions_daymax](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RT_predictions_dailymax.PNG)
 
-Now, we can tell the total cooling load of the building with the weather condition.
+Now, we can tell the total cooling load of the building with the given weather condition.
 
 Then, we may be able to do the chiller plant optimization while we determine the chillers' total cooling load.
 
