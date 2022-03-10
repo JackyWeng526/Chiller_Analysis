@@ -2,59 +2,77 @@
 # Test parameters
 # Filter conditions
 limitations = dict(
-# KW/RT
-KWRT_upper_limit = 2 ,
-KWRT_lower_limit = 0 ,
-# Chiller KW
-KW_upper_limit = 1000 ,
-KW_lower_limit = 10 ,
-# Chiller RT
-RT_upper_limit = 800 ,
-RT_lower_limit = 50 ,
-# Chiller TCHS
-TCHS_upper_limit = 10 ,
-TCHS_lower_limit = 5 ,
-# Chiller TCWS
-TCWS_upper_limit = 40 ,
-TCWS_lower_limit = 22 ,
-# Chiller TCH_delta
-TCH_delta_upper_limit = 6 ,
-TCH_delta_lower_limit = 0 ,
+    # KW/RT
+    KWRT_upper_limit = 2 ,
+    KWRT_lower_limit = 0 ,
+    # Chiller KW
+    KW_upper_limit = 1000 ,
+    KW_lower_limit = 10 ,
+    # Chiller RT
+    RT_upper_limit = 800 ,
+    RT_lower_limit = 50 ,
+    # Chiller TCHS
+    TCHS_upper_limit = 10 ,
+    TCHS_lower_limit = 5 ,
+    # Chiller TCWS
+    TCWS_upper_limit = 40 ,
+    TCWS_lower_limit = 22 ,
+    # Chiller TCH_delta
+    TCH_delta_upper_limit = 6 ,
+    TCH_delta_lower_limit = 0 ,
+)
+
+# Parameters for gegression and analysis
+reg_pars = dict(
+    # timestep
+    resample_step = "3min"
 )
 
 # Plot parameters
 parameters = dict(
-# KW/RT axes, ticks, shifts
-KWRT_cal_upper_limit = 1.2 , # P1: 2.0, P2: 1.2
-KWRT_cal_lower_limit = 0.2 , # P1: 0.6, P2: 0.2
-KWRT_cal_ticks = 0.2 ,
-KWRT_cal_shift = 0.1 ,
-# Chiller KW axes, ticks, shifts
-KW_upper_limit = 350 ,
-KW_lower_limit = 50 ,
-KW_ticks = 50 ,
-KW_shift = 10 ,
-# Chiller RT axes, ticks, shifts
-RT_cal_upper_limit = 600 , # P1_CH01: 450, P1_CH02: 500, P2: 600
-RT_cal_lower_limit = 50 ,
-RT_cal_ticks = 50 ,
-RT_cal_shift = 10 ,
-# Chiller TCHS axes, ticks, shifts
-TCHS_upper_limit = 10 ,
-TCHS_lower_limit = 6 ,
-TCHS_ticks = 1 ,
-TCHS_shift = 0.5 ,
-# Chiller TCWS axes, ticks, shifts
-TCWS_upper_limit = 40 ,
-TCWS_lower_limit = 20 ,
-TCWS_ticks = 2 ,
-TCWS_shift = 0.5 ,
+    # parameters for axes related to variable of KW/RT (Performance of HVAC system or chillers)
+    KWRT_cal_upper_limit = "Default" , # "Default" for auto-adjust maximum tick of axis, also can manually input values like 1.2 or 2.0.
+    KWRT_cal_lower_limit = "Default" , # "Default" for auto-adjust minimum tick of axis, also can manually input values like 0.0 or 0.6.
+    KWRT_cal_ticks = 0.2 , # "Default" for auto-adjust interval of ticks, also can manually input values like 0.1, 0.2 or 0.4.
+    KWRT_cal_shift = "Default" , # "Default" for auto-adjust standoff of left/right sides of axess, also can manually input values like 0.0, 0.1 or 0.2.
+    
+    # parameters for axes related to variable of KW (Energy consumption of HVAC system or chillers)
+    KW_upper_limit = "Default" , # "Default" for auto-adjust maximum tick of axis, also can manually input values like 350 or 500.
+    KW_lower_limit = "Default" , # "Default" for auto-adjust minimum tick of axis, also can manually input values like 50 or 100.
+    KW_ticks = "Default" , # "Default" for auto-adjust interval of ticks, also can manually input values like 50 or 100.
+    KW_shift = "Default" , # "Default" for auto-adjust standoff of left/right sides of axess, also can manually input values like 10 or 20.
+    
+    # parameters for axes related to variable of RT_cal (Cooling load/demand)
+    RT_cal_upper_limit = "Default" , # "Default" for auto-adjust maximum tick of axis, also can manually input values like 400 or 600.
+    RT_cal_lower_limit = "Default" , # "Default" for auto-adjust minimum tick of axis, also can manually input values like 50 or 100.
+    RT_cal_ticks = "Default" , # "Default" for auto-adjust interval of ticks, also can manually input values like 50 or 100.
+    RT_cal_shift = "Default" , # "Default" for auto-adjust standoff of left/right sides of axess, also can manually input values like 10 or 20.
+    
+    # parameters for axes related to variable of TCHS (Temperature of chilled water - supply)
+    TCHS_upper_limit = "Default" , # "Default" for auto-adjust maximum tick of axis, also can manually input values like 10 or 16.
+    TCHS_lower_limit = "Default" , # "Default" for auto-adjust minimum tick of axis, also can manually input values like 6 or 8.
+    TCHS_ticks = 0.5 , # "Default" for auto-adjust interval of ticks, also can manually input values like 0.5 or 1.0.
+    TCHS_shift = 0.1 , # "Default" for auto-adjust standoff of left/right sides of axess, also can manually input values like 0.5 or 1.0.
+    
+    # parameters for axes related to variable of TCWS (Temperature of cooling water - supply)
+    TCWS_upper_limit = "Default" , # "Default" for auto-adjust maximum tick of axis, also can manually input values like 40 or 36.
+    TCWS_lower_limit = "Default" , # "Default" for auto-adjust minimum tick of axis, also can manually input values like 20 or 18.
+    TCWS_ticks = 4 , # "Default" for auto-adjust interval of ticks, also can manually input values like 1.5 or 2.0.
+    TCWS_shift = "Default" , # "Default" for auto-adjust standoff of left/right sides of axess, also can manually input values like 0.5 or 1.0.
 )
 
 # Field & data parameters
 # For default test data
 data_name = "P1_CH01.csv"
 Chiller_name = "P1_CH01" 
+
+field_name = "漢民科技"
+merge_file_name = "漢民科技合併檔案_202010_202110.csv"
+PointId_table_file_name = "漢民科技標準化點位對照表.xlsx"
+Chiller_name = "P1_CH02" # 測試用
+Chiller_list = ["P1_CH01", "P1_CH02", "P2_CH01"] # 測試用
+Chiller_data_name = "P1_CH02.csv"
+
 
 # %%
 # Import packages

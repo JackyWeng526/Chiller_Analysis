@@ -140,10 +140,10 @@ Backup of *.doc*
 *.~vsd*
 
 # Data stuff
-.data
-data/
-/data
-data/*
+# .data
+# data/
+# /data
+# data/*
 .etc
 etc/
 src/*.html
