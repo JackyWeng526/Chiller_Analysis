@@ -63,15 +63,16 @@ parameters = dict(
 
 # Field & data parameters
 # For default test data
-data_name = "P1_CH01.csv"
-Chiller_name = "P1_CH01" 
 
-field_name = "漢民科技"
-merge_file_name = "漢民科技合併檔案_202010_202110.csv"
-PointId_table_file_name = "漢民科技標準化點位對照表.xlsx"
-Chiller_name = "P1_CH02" # 測試用
-Chiller_list = ["P1_CH01", "P1_CH02", "P2_CH01"] # 測試用
-Chiller_data_name = "P1_CH02.csv"
+# data_name = "P1_CH01.csv"
+# Chiller_name = "P1_CH01" 
+# PointId_table_file_name = "漢民科技標準化點位對照表.xlsx"
+
+field_name = "HanMingTech"
+merge_file_name = "HanMingTech_merged-202010_202110.csv"
+Chiller_name = "P1_CH02" # For test
+Chiller_list = ["P1_CH01", "P1_CH02", "P2_CH01"] # For test
+Chiller_data_name = "P1_CH02.csv" # For test
 
 
 # %%
@@ -91,18 +92,7 @@ import matplotlib.pyplot as plt
 cf.go_offline()
 
 # Analysis related
-from sklearn.linear_model import LinearRegression
-from scipy.optimize import minimize
 from sklearn.metrics import r2_score, mean_absolute_error, mean_absolute_percentage_error
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.model_selection import cross_val_predict
-from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.pipeline import make_pipeline
-from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import r2_score
-from scipy.signal import savgol_filter
 import lightgbm as lgb
 
 # Create data paths
@@ -110,9 +100,10 @@ BASE_PATH = os.path.dirname(os.path.abspath(__file__)) # root path of this pycod
 DATA_PATH = os.path.join(BASE_PATH, "..", "data") # data files' path
 
 # List the chillers' data
-merge_data_file = [f for f in os.listdir(DATA_PATH) if ("CH" in f) & (f.endswith(".csv"))]
-print(F"Chiller data files: {merge_data_file}")
-
+merge_data_file = [f for f in os.listdir(DATA_PATH) if ("merge" in f) & (f.endswith(".csv"))]
+print(F"Merged data files: {merge_data_file}")
+chiller_data_file = [f for f in os.listdir(DATA_PATH) if ("CH" in f) & (f.endswith(".csv"))]
+print(F"Merged data files: {chiller_data_file}")
 
 # %%
 # Read the chiller data
