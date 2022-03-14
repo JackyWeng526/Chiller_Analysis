@@ -22,13 +22,21 @@ First, we plot the time series of the chillers' cooling load.
 
 ![Chillers_RT_timeserise](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/Chillers_RT_timeserise.PNG)
 
-Also, the weekly profiles of the chillers' cooling load are investigated.
+Second, we can look into the energy and cooling performance of the chillers and chiller plants (including energy use of pumps and cooling tower).
+
+![KWRT_total_timeserise](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/Chillers_performance_timeserise.PNG)
+
+![sysKWRT_timeserise](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/System_performance_timeserise.PNG)
+
+Besides, the weekly profiles of the chillers' cooling load are investigated.
 
 ![RT_weekly_profile](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RT_weekly_profile.PNG)
 
-![RT_vs_Ta](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RT_vs_Ta.PNG)
+![RT_vs_wetT](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RT_vs_wetT.PNG)
 
-![RTmax_vs_Ta](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RTmax_vs_Ta.PNG)
+![RTmax_vs_wetT](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RTmax_vs_wetT.PNG)
+
+**note: Here used outdoor wet bulb temperature because we found that cooling load patterns were highly relavent to both dry bulb temperature and relative humidity.
 
 ## Cooling Load Prediction
 We utilize the LightGBM model for training and predicting.
@@ -41,7 +49,7 @@ The outcomes are demonstrated below.
 
 ![RT_predictions_daymax](https://github.com/JackyWeng526/Chiller_Analysis/blob/main/docs/RT_predictions_dailymax.PNG)
 
-Now, we can tell the total cooling load of the building with the given weather condition.
+Now, we can tell the total cooling load of the building with the given weather condition (the result of hourly predictions are saved as a csv file).
 
 Then, we may be able to do the chiller plant optimization while we determine the chillers' total cooling load.
 

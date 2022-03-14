@@ -509,10 +509,14 @@ reg = lgb.LGBMRegressor(n_estimators=50).fit(df_train[list_feature].values, df_t
 R2_train = round(reg.score(df_train[list_feature].values, df_train[pred_targ].values),4)
 R2_test = round(reg.score(df_test[list_feature].values, df_test[pred_targ].values),4)
 R2_all = round(reg.score(df_all[list_feature].values, df_all[pred_targ].values),4)
+MAE_test = round(mean_absolute_error(df_dataset.dropna().iloc[:, 0], df_dataset.dropna().iloc[:, 1]), 2)
+MAPE_test = round(mean_absolute_percentage_error(df_dataset.dropna().iloc[:, 0], df_dataset.dropna().iloc[:, 1]), 2)
 
 # View and plot the training results
 print(F"R2_train: {str(R2_train)}")
 print(F"R2_test: {str(R2_test)}")
+print(F"MAE_test: {str(MAE_test)}")
+print(F"MAPE_test: {str(MAPE_test)}")
 
 df_dataset.loc[df_test.index, F"{pred_targ}_pred"] = reg.predict(df_test[list_feature].values)
 df_dataset.loc[:, F"{pred_targ}_pred_all"] = reg.predict(df_all[list_feature].values)
@@ -548,6 +552,12 @@ daily_max_df_dataset = df_dataset[[pred_targ, F"{pred_targ}_pred", F"{pred_targ}
 x_targ_daymax, y_targ_daymax, y_targ_pred_daymax = daily_max_df_dataset.index, daily_max_df_dataset[pred_targ], daily_max_df_dataset[F"{pred_targ}_pred"]
 R2_daymax = round(r2_score(daily_max_df_dataset.dropna().iloc[:, 0], daily_max_df_dataset.dropna().iloc[:, 1]),4)
 R2_daymax_all = round(r2_score(daily_max_df_dataset.iloc[:, 0].dropna(), daily_max_df_dataset.iloc[:, 2].dropna()),4)
+MAE_daymax = round(mean_absolute_error(daily_max_df_dataset.dropna().iloc[:, 0], daily_max_df_dataset.dropna().iloc[:, 1]), 2)
+MAPE_daymax = round(mean_absolute_percentage_error(daily_max_df_dataset.dropna().iloc[:, 0], daily_max_df_dataset.dropna().iloc[:, 1]), 2)
+
+print(F"R2: {str(R2_daymax)}")
+print(F"MAE: {str(MAE_daymax)}")
+print(F"MAPE: {str(MAPE_daymax)}")
 
 fig = go.Figure()
 fig.add_trace(go.Scatter(
@@ -557,7 +567,7 @@ fig.add_trace(go.Scatter(
     name=F"{pred_targ}_pred_daymax", x=x_targ_daymax, y=y_targ_pred_daymax,
     mode="lines", line=dict(width=2, color=y_targ_pred_color)))
 fig.update_layout(
-    title = dict(text=F"{pred_targ}_daymax prediction result (r<sup>2</sup>={R2_daymax})", x=0.04, y=0.83),
+    title = dict(text=F"{pred_targ}_daymax prediction result", x=0.04, y=0.83),
     xaxis = dict(
         showline=True, linewidth=1.2, linecolor="black",
         showticklabels=True, showgrid=True, gridcolor="rgba(230, 230, 230, 1)",
