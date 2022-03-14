@@ -10,7 +10,7 @@ Then, we intend to advance the chiller plant optimization in the near future.
 **note: The repository is not complete yet and will be updated irregularly.
 
 ## Data
-The dataset include chiller and weather data and are displayed below.
+The dataset includes chiller and weather data and are displayed below.
 
 The dataset is displayed as long-data classified by chiller name (subset_column==Chiller).
 
